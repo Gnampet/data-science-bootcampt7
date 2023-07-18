@@ -2,7 +2,7 @@
 
 This project is part of my homework in the data science boot camp 7 by Data Rockie to explore the diamond data set by creating a visualization.
 
-##  Load required package
+##  Load the required package
 Firstly, installing and loading the necessary packages are required. In this case, I have installed the package in my Rstudio.  
 ```{r}
 library(tidyverse)
@@ -17,11 +17,11 @@ which(is.na(diamonds))
 ```
 ### Data Summary
 1. There are 53,940 observations.
-2. There are no missing value.
+2. There are no missing values.
 
 # Explore visualization
 
-Check the relationship between the column that have a numeral number.
+Check the relationship between the column that has a numeral number.
 
 ```{r}
 num <- diamonds%>%
@@ -34,11 +34,11 @@ num <- diamonds%>%
          z)
 corrplot(cor(num), method = "color", type = "upper", addCoef.col =  "red", col = COL2("RdYlBu"))
 ```
-1.There is a positive correlation of carat with x, y, and z, indicating an increase in carat might predict an increase in the size or weight of the diamond.
+1. There is a positive correlation of carat with x, y, and z, indicating an increase in carat might predict an increase in the size or weight of the diamond.
 
-2.There is also a positive correlation of the price with the carat, x, y, and z, indicating that an increase in carat, x, y, and z is an increase in the price.
+2. There is also a positive correlation of the price with the carat, x, y, and z, indicating that an increase in carat, x, y, and z is an increase in the price.
 
-3.there is a negative correlation between the depth and the table, indicating that an increase in the depth predicts a decrease in the table.
+3. there is a negative correlation between the depth and the table, indicating that an increase in the depth predicts a decrease in the table.
 
 Check the relationship between price and carat.
 ```{r}
@@ -51,7 +51,7 @@ ggplot(diamonds%>% sample_n(30000),aes(carat,price))+
        subtitle = "Sample 30,000 observations")
 ```
 
-Example of the price and the carat relationship, 30,000 observations indicate a positive correlation, an increase of the carat also does to the price.
+For example in the price and the carat relationship, 30,000 observations indicate a positive correlation, an increase in the carat also does to the price.
 
 Now, let’s check the relationship between the price with the ordered factor which is the cut, color, and clarity. For this exploration, I will set 30,000 observations the same as the “Relationship between price and carat” visualization, and use set.seed() to guarantee the same random value every time running the code.
 ```{r}
