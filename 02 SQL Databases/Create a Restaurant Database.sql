@@ -1,3 +1,4 @@
+
 -- This is part of my homework in the boot camp to create a database of a restaurant.  
 -- I have created a cafe database consisting of a drink and dessert menu with the name 'PP cafe'.
 -- HW: Restaurant database
@@ -7,6 +8,7 @@
 -- 1x SUBQUERY
 -- 1x Aggregate function
 
+-- ====================================================================================================
 
 .open pp_cafe.db;
 --Categories menu
