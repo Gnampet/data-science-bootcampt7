@@ -1,5 +1,7 @@
+
 # IMDB web scraping in R Programming Language
 # Hello! I will show you how to pull data from the static website by using R programming language
+
 #==============================================================================================
 
 # First install a required package
