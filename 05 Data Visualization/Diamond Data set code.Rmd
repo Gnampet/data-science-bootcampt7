@@ -1,0 +1,147 @@
+---
+title: "Homework Data Viz"
+author: "Monsicha Tame"
+date: "2023-08-17"
+output: html_document
+---
+# Hello World
+
+This project is part of my homework for Data Rockie's Data Science Boot Camp 7 to explore the diamond data set by creating a visualization.
+
+##  Load the required package
+Install any required packages. 
+```{r include = TRUE, warning = FALSE, message=FALSE}
+library(tidyverse)
+library(corrplot)
+```
+## Explore data frame
+Check the following data basics: column names, number of observations, data type, formatting, and missing values.
+```{r}
+glimpse(diamonds)
+head(diamonds)
+which(is.na(diamonds))
+```
+
+
+
+
+
+### Data Summary
+1. There are a total of 53,940 observations.
+2. There are no missing value.
+3. There are three categorical variables: cut, carat, and clarity.
+4. There are seven numerical variables to consider: carat, depth, table, price, x, y, and z.
+
+# Explore visualization
+
+### Numerical vs Numerical Variables
+**Check correlation of the numerical variables**
+```{r cor_num}
+num <- diamonds%>%
+  select(carat, price, depth, table, x, y, z)
+
+corrplot(cor(num), method = "color", type = "upper", addCoef.col =  "red", col = COL2("RdYlBu"))
+```
+
+
+1. There is a positive correlation between carat and x, y, and z, indicating that an increase in carat may predict an increase in diamond size or weight.
+
+2. Price has a positive correlation with carat, x, y, and z, indicating that an increase in carat, x, y, and z results in an increase in price.
+
+3. The depth and the table have a negative correlation, which means that increasing the depth predicts a decrease in the table.
+
+**Check relationship between price and carat**
+
+I will sampling() function to sampling 30,000 observations and use set.seed() function to guarantee the same random value every time running the code.
+```{r carat_price_point}
+set.seed(42)
+ggplot(diamonds%>% sample_n(30000),aes(carat,price))+
+  geom_point(alpha = 0.5, col= "orange")+
+  geom_smooth()+
+  labs(title = "Relationship between price and carat",
+       subtitle = "Sample 30,000 observations")
+```
+
+As you can see, there is a positive correlation between price and carat; as the carat increases, so does the price.
+
+### Categorical vs Categorical Variables
+
+```{r}
+set.seed(42)
+diamonds %>% 
+  sample_n(30000) %>% 
+  count(color, cut) %>%
+  ggplot(aes(x = color, y = cut)) + geom_tile(aes(fill = n)) +
+  labs(title = "Cut and Color Matrix")
+
+```
+```{r}
+set.seed(42)
+diamonds %>% 
+  sample_n(30000) %>% 
+  count(cut, clarity) %>%
+  ggplot(aes(x = clarity, y = cut)) + geom_tile(aes(fill = n)) +
+  labs(title = "Cut and Clarity Matrix")
+```
+
+From 30,000 observations, the majority of diamonds are ideal cut diamonds with near-colorless (G scale) color and very small inclusions (VS2 grade).
+
+### Categorical vs Numerical Variables
+**Check the relationship between the price with cut, color, and clarity**
+
+```{r}
+set.seed(42)
+median_cut <- diamonds %>%
+  sample_n(3000)%>%
+  group_by(cut) %>%
+  summarise(median = median(price))
+
+  ggplot(diamonds %>% sample_n(30000),aes(cut, price, color = cut)) +
+  geom_boxplot(alpha = 0.4) +
+  labs(title = "Price of diamonds by their cut") +
+  geom_text(data = median_cut, aes(cut, median, label = median), 
+            position = position_dodge(width = 0.5), size = 4, vjust = -0.5)
+```
+
+As you can see, the premium cut has the highest median price of 3,320.5, followed by the fair cut, good cut, very good cut, and ideal cut (Premium> Fair> Good> Very Good> Ideal).
+
+
+```{r}
+set.seed(42)
+median_color <- diamonds %>%
+  sample_n(3000)%>%          
+  group_by(color) %>%
+  summarise(median = median(price))
+
+  ggplot(diamonds %>% sample_n(30000),aes(color, price, color = color)) +
+  geom_boxplot(alpha = 0.4) +
+  labs(title = "Price of diamonds by their color") +
+  geom_text(data = median_color, aes(color, median, label = median), 
+            position = position_dodge(width = 0.5), size = 4, vjust = -0.5)
+```
+
+This section shows the J color, which is the lowest grade of color from 'D' to 'J' and has the highest median of 4,192 prices, followed by the H color and then the I, F, G, D, and E colors (J> H> I> F> G> D> E).
+
+
+```{r}
+set.seed(42)
+median_clarity <- diamonds %>%
+  sample_n(3000)%>%
+  group_by(clarity) %>%
+  summarise(median = median(price))
+
+  ggplot(diamonds%>%sample_n(30000),aes(clarity, price, color = clarity)) +
+  geom_boxplot(alpha = 0.4) +
+  labs(title = "Price of diamonds by thier clarity") +
+  geom_text(data = median_clarity, aes(clarity, median, label = median),
+            position = position_dodge(width = 0.5), size = 4, vjust = -0.5)
+
+```
+
+This section shows that SI2 has the highest median of 4,123 prices, followed by I1 with 3139 prices, SI1 with 2,809 prices, then VS2, VS1, IF, VVS1, and VVS2 (SI2> I1> SI1> VS2> VS1> IF> VVS1> VVS2> VVS2).
+
+## Conclusion
+I divided the exploration into three parts to investigate numerical vs. numerical variables, category vs. category variables, and category vs. numerical variables by creating a visualization with ggplot.
+The analysis reveals:
+1. There is a strong positive relationship between price and carat, x, y, and z, which means that diamonds with a higher carat, larger size, and heavier weight tend to be more expensive.
+2. The most popular diamonds are ideal-cut diamonds with near-colorless and very small inclusions clarity.
