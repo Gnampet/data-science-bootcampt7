@@ -1,15 +1,14 @@
 # Data Science Bootcamp 07
 
-All my data projects in the bootcamp.
+All my data projects in the boot camp.
 
 * Google Sheets
-* SQL (soon)
-* R programming 
-* Data Transformation (soon)
+* SQL Databases
+* R Programming Foundation
+* Data Transformation
 * Data Visualization 
-* Essential Statistics (soon)
-* Essential ML
-* Python for Data Analyst (soon)
-* Dashboard (soon)
+* Essential Machine Learning & Statistics 
+* Python for Data Analyst 
+* Dashboard 
 
 
