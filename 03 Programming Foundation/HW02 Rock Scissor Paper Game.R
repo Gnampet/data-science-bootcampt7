@@ -7,7 +7,7 @@
 
 # Loop Function: while(TRUE) 
 
-# Useer and Computer Input:
+# User and Computer Input:
 # - user: The user is the option to input their choice among "rock," "scissor," or "paper" using the readline function.
 # - computer: The computer randomly selects an option from the available choices.
 
