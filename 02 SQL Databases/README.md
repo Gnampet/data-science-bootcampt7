@@ -5,11 +5,11 @@
 
 ## Database Details
 There are 5 tables in the restaurant database
--  Categories table consists of categories_id and categories_name.
--  Menu table consists of menu_id, categories_id,  menu_name, and menu_price.
--  Customer name table consists of customers_id, customers_name, and customers_type.
--  Service Type table consists of service_id and service_type.
--  Orders table shows the details of an order consisting of order_id, order_date, menu_id, customers_id, and service_id
+1. Categories table consists of _categories_id_ and _categories_name._
+2. Menu table consists of _menu_id, categories_id,  menu_name,_ and _menu_price._
+3. Customer name table consists of customers_id, customers_name, and customers_type.
+4. Service Type table consists of _service_id_ and _service_type._
+5. Orders table shows the details of an order consisting of _order_id, order_date, menu_id, customers_id,_ and _service_id_
 
 ## SQL Statements
 - CREATE TABLE: Create a new table in a database.
