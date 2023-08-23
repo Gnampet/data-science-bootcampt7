@@ -1,9 +1,4 @@
 
---Summary: 
--- Create a restaurant database and generate an overview of the restaurant's performance using a subquery technique.
--- Calculate the number of service days, total orders, total income, and average income per service day.
--- Calculate an aggregated perspective of the cafe's operational performance
-
 -- HW: Restaurant database
 -- 5 tables
 -- Write 3-5 queries
