@@ -1,9 +1,17 @@
 
-# Create a pizza-ordering chatbot using R programming
-# - The chatbot engages users in a conversation, welcoming them to 'Local Pizza.' 
-# - Users can place an order by responding with 'Yes' or end the conversation with 'Exit.'
-# - Upon choosing to order, users specify the type and size of the pizza, additional toppings, preferred drinks, and whether they want to add more items.
-# - Once the order is complete, the chatbot provides an order summary and informs users that the food will be ready in 25 minutes.
+# Creating a Pizza Ordering Chatbot in R
+
+# The code initiates by introducing users to the chatbot's purpose. It prints a welcoming message, inviting users to interact with the "Local Pizza" chatbot. Users are informed that they can exit the conversation by typing "Exit."
+
+# Loop Function: while(TRUE)
+
+# Users Input:
+# - user_select: Users respond "Yes" to place an order or "Exit" to end the conversation.
+# - order_pizza: The user specifies the type of pizza they desire.
+# - order_size: The user indicates the desired size of the pizza.
+# - order_topping: The user is prompted to decide whether they want to add more toppings.
+# - order_drink: The user selects their preferred beverage.
+# - order_more: The user is asked whether they want to add more items.
 
 #=====================================================================================================================================
 
