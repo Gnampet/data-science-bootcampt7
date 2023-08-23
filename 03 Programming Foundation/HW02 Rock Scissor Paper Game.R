@@ -1,5 +1,6 @@
 
 # Creating a Rock-Scissors-Paper Game in R
+
 # The game sets up the initial scores for the user and the computer as well as a counter for the rounds played. 
 # It defines the available options: "rock," "scissors," and "paper."
 # After each round, the code prints the computer's choice and the outcome of the round (win, tie, or loss).
