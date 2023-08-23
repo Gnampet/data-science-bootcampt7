@@ -1,4 +1,17 @@
-# Create a Rock Scissor Paper game in R programming
+
+# Creating a Rock-Scissors-Paper Game in R
+# The game sets up the initial scores for the user and the computer as well as a counter for the rounds played. 
+# It defines the available options: "rock," "scissors," and "paper."
+# After each round, the code prints the computer's choice and the outcome of the round (win, tie, or loss).
+# If the user types "exit," the game concludes. The total rounds played, the user's score, and the computer's score are displayed
+
+# Loop Function: while(TRUE) 
+
+# Useer and Computer Input:
+# - user: The user is the option to input their choice among "rock," "scissor," or "paper" using the readline function.
+# - computer: The computer randomly selects an option from the available choices.
+
+#==================================================================================================================================
 
 roshambo <- function(){
   user_score <-  0
